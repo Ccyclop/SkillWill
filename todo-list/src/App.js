@@ -1,16 +1,19 @@
-import { NotDoneList } from './notDoneList';
-import { DoneList } from './doneList';
+import NotDoneList from './notDoneList';
+import DoneList from './doneList';
 import { Component } from 'react';
 import './App.css';
 
 class App extends Component {
 
-  tempValue = ''
-
-  state = {
-    notDone: [],
-    done: [],
+  constructor(props) {
+    super(props)
+    this.state = {
+      notDone: [],
+      done: [],
+    }
   }
+
+  tempValue = ''
 
   handleChange = (event) => {
     this.tempValue = event.target.value
@@ -18,7 +21,7 @@ class App extends Component {
 
   handleBtnClick = () => {
     const temp = [...this.state.notDone]
-    if (this.tempValue.length != 0){
+    if (this.tempValue.length !== 0){
       temp.push({
         name: this.tempValue
       })

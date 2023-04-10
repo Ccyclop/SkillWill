@@ -1,12 +1,20 @@
-import { ListElement } from "./listElement";
+import { PureComponent } from "react";
+import  ListElement  from "./listElement";
 
-export const DoneList = ({data, onRemove}) => {
-    return(
-        <div className="done-list">
-            <h1 style={{textAlign: 'center',}}>Done</h1>
-            {data.map((elem, index) => {
-                return <ListElement key={index} info={elem.name} isDone = {true} index={index} onRemoveFunction={onRemove} /> 
-            })}
-        </div>
-    )
+class DoneList extends PureComponent{
+
+    render() {
+        const {data, onRemove} = this.props
+        return(
+            <div className="done-list">
+                <h1 style={{textAlign: 'center',}}>Done</h1>
+                {data.map((elem, index) => {
+                    return <ListElement key={index} info={elem.name} isDone = {true} index={index} onRemoveFunction={onRemove} /> 
+                })}
+            </div>
+        )
+    }
+
 }
+
+export default DoneList
